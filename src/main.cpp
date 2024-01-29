@@ -23,5 +23,5 @@ int main(int argc, char** argv)
     else
         std::cout << "Table created Successfully" << std::endl; 
     sqlite3_close(DB); 
-    return (0); 
+    return 0; 
 } 
