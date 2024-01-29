@@ -1,10 +1,10 @@
 CC = g++
-FILES = ./build/kuznechik.o ./build/block_cipher.o ./build/cfb.o ./build/blowfish.o ./build/bcrypt.o ./build/base64.o
-MAIN = ./src/main.cpp
+FILES = ./build/kuznechik.o ./build/block_cipher.o ./build/cfb.o ./build/blowfish.o ./build/bcrypt.o ./build/base64.o ./src/main.o
 OBJECT = ./build/main.out
+LIBS = -lsqlite3
 
 all: $(FILES)
-	$(CC) $(FILES) $(MAIN) -o $(OBJECT)
+	$(CC) $(FILES) $(MAIN) -o $(OBJECT) $(LIBS)
 
 
 ./build/kuznechik.o: ./src/include/crypto/kuznechik/kuznyechik.cpp
@@ -29,3 +29,7 @@ all: $(FILES)
 
 ./build/base64.o: ./src/include/base64.cpp
 	$(CC) -c -o ./build/base64.o ./src/include/base64.cpp
+
+
+./build/main.o: ./src/main.cpp
+	$(CC) -c -o ./build/main.o ./src/main.cpp
